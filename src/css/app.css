@@ -1,0 +1,156 @@
+body, html
+{
+
+   margin: 0px;
+   padding: 0px;
+   overflow-x: hidden;
+
+}
+
+#app
+{
+
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 99.7vh;
+
+}
+
+
+.appCore
+{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+}
+
+
+.main
+{
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+
+}
+
+
+.menuContainer
+{
+
+   width: 100%;
+   height: 50px;
+   position: fixed;
+   bottom: 0px;
+   background-color: #fc0e26;
+   -webkit-box-shadow: -4px 1px 6px -2px rgba(0,0,0,0.75);
+   -moz-box-shadow: -4px 1px 6px -2px rgba(0,0,0,0.75);
+   box-shadow: -4px 1px 6px -2px rgba(0,0,0,0.75);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 3;
+
+}
+
+
+.appIntro
+{
+
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   background-color: #fc0e26;
+   background: -webkit-linear-gradient(to bottom, #190A05, #fc0e26);
+   background: linear-gradient(to bottom, #190A05, #fc0e26);
+   z-index: 5;
+   border-radius: 100%;
+
+}
+
+
+.lauchBody
+{
+
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.lauchBody img
+{
+
+   position: absolute;
+
+}
+
+
+.lauchBody .logo
+{
+
+   width: 200px;
+   height: 200px;
+   
+
+}
+
+
+.lauchFoot .alertIcon
+{
+
+   width: 30px;
+   height: 30px;
+   position: relative;
+   left: 10px;
+   opacity: 0;
+
+}
+
+
+.lauchFoot
+{
+
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   width: auto;
+   height: auto;
+   text-align: left;
+   position: relative;
+   top: 70px;
+
+}
+
+
+.lauchFoot p
+{
+
+   color: white;
+   text-align: center;
+   font-size: 20px;
+   margin-left: 5px;
+   opacity: 0;
+
+}
