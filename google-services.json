@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "554911665700",
+    "firebase_url": "https://redbutton-alert.firebaseio.com",
+    "project_id": "redbutton-alert",
+    "storage_bucket": "redbutton-alert.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554911665700:android:851672cd73cbefa7",
+        "android_client_info": {
+          "package_name": "rba.yanick.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554911665700-a3tqskphd9evcvkuh6efv4ihmh94coq4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rba.yanick.dev",
+            "certificate_hash": "62427778f3356310e91a86c5f64dd3a894bd686c"
+          }
+        },
+        {
+          "client_id": "554911665700-88n95kjtbhads8phg2fhk8jie6lv5bq9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUpdGeI8sjXI3WsH5GgnSZ91YPO-ohx3w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554911665700-88n95kjtbhads8phg2fhk8jie6lv5bq9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Menu from '@/components/Menu'
+import SignIn from '@/components/Signin'
 
 Vue.use(Router)
 
@@ -12,16 +13,27 @@ export default new Router({
       name: 'Home',
       components: {
 
-        home: Home,
+        default: Home,
         menu: Menu
 
       }
     },
-
     {
 
       path: '/profile',
       name: 'UserProfile'
+
+    },
+    {
+
+      path: '/signin',
+      name: 'signIn',
+      components: {
+
+        default: SignIn,
+        menu: Menu
+
+      }
 
     }
   ]

@@ -6,7 +6,7 @@
 
     <div class="main">
 
-      <router-view class="vieuwHome" name="home"/>
+      <router-view/>
 
     </div>
 
@@ -22,7 +22,7 @@
 
       <div class="lauchBody">
 
-        <img src="assets/redbuttonLogo.svg" alt="" class="logo">
+        <img src="./assets/redbuttonLogo.svg" alt="" class="logo">
 
       </div>
 
@@ -32,7 +32,7 @@
          <p>Red</p>
          <p>Button</p>
          <p>Alert</p>
-         <img src="assets/alert.svg" alt="" class="alertIcon">
+         <img src="./assets/alert.svg" alt="" class="alertIcon">
 
       </div>
 
@@ -45,11 +45,20 @@
 
 <style rel="stylesheet" type="text/css" src="./css/app.css"></style>
 
-
 <script>
 
+import Animation from './classes/animations'
+
 export default {
-  name: 'App'
+
+  name: 'App',
+
+  mounted(){
+
+    Animation.lauchScreen();
+
+  }
+
 }
 
 </script>
