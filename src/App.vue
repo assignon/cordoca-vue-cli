@@ -12,7 +12,7 @@
 
     <div class="menuContainer">
 
-       <router-view class="vieuwMenu" name="menu"/>
+       <router-view class="viewMenu" name="menu"/>
 
     </div>
 

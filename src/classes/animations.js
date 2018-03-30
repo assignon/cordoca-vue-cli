@@ -5,6 +5,7 @@ class Animations {
 
      this.tl = new TimelineMax();
      this.tl2 = new TimelineMax();
+     this.tl3 = new TimelineMax();
 
    }
 
@@ -30,13 +31,6 @@ class Animations {
    }
 
 
-   pauseLauchScreen ()
-   {
-
-      this.tl.pause();
-
-   }
-
 
    displaySos ()
    {
@@ -45,6 +39,25 @@ class Animations {
      this.tl2.to('.appCore',0.9, {opacity: 1,zIndex: '2', ease: Quad.easeOut});
 
      this.tl2.staggerTo('.alerts', 1, {scale: 1, ease: Back.easeOut});
+
+   }
+
+
+   displayForm ()
+   {
+
+     this.tl3.to('.formsContainer',1, {zIndex: 7, display: 'flex'});
+     //this.tl3.to('.formBack',1, {opacity: 0.9, ease: Quad.easeOut}, 0.3);
+     //this.tl3.to('.loginOut input',1, {opacity: 1, ease: Quad.easeOut}, 0.4);
+
+   }
+
+
+   hideForm ()
+   {
+
+     this.tl3.to('.formsContainer',1, {zIndex: 0, display: 'none'});
+     //this.tl3.to('.formBack',0.9, {opacity: 0, ease: Cubic.easeOut});
 
    }
 

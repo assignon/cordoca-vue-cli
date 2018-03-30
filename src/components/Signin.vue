@@ -1,6 +1,6 @@
 <template>
 
-  <h1 @click="goHome">je suis le login</h1>
+  <h1><router-link to='/'>Home</router-link></h1>
 
 </template>
 
@@ -23,7 +23,7 @@ export default {
        goHome ()
        {
 
-         this.$router.push('/');
+         //this.$router.push('/');
          //Animation.pauseLauchScreen();
          Animation.displaySos();
 
