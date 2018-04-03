@@ -206,7 +206,7 @@
 .loginOut
 {
 
-   width: auto;
+   width: 100%;
    height: auto;
    display: flex;
    flex-direction: column;
@@ -229,7 +229,7 @@
 .loginOut input
 {
 
-    width: 355px;
+    width: 80%;
     height: 35px;
     border: 1px solid #fc0e26;
     border-bottom: 2px solid white;
@@ -246,7 +246,7 @@
 .loginOut input[type=submit]
 {
 
-   width: 355px;
+   width: 80%;
    height: 37px;
    text-align: center;
    background-color: #fc0e26;

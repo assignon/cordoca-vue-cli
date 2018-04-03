@@ -21,7 +21,7 @@
         <div class="moreMenuItems">
 
            <div class="menuIconCont"><img src="../assets/info.svg" alt=""></div>
-           <p>Info</p>
+           <p>info</p>
 
         </div>
 
@@ -34,10 +34,18 @@
         </div>
 
 
-        <div class="moreMenuItems">
+        <div class="moreMenuItems" v-if="userLogged == null" @click="logIn">
 
            <div class="menuIconCont"><img src="../assets/login.svg" alt=""></div>
            <p>Login</p>
+
+        </div>
+
+
+        <div class="moreMenuItems" v-if="userLogged != null" @click="logOut">
+
+           <div class="menuIconCont"><img src="../assets/logout.svg" alt=""></div>
+           <p>Uitlogen</p>
 
         </div>
 
@@ -46,13 +54,6 @@
 
            <div class="menuIconCont"><img src="../assets/more.svg" alt=""></div>
            <p>Meer</p>
-
-        </div>-->
-
-        <!--<div class="moreMenuItems">
-
-           <div class="menuIconCont"><img src="../assets/logout.svg" alt=""></div>
-           <p>Uitlogen</p>
 
         </div>-->
 
@@ -66,9 +67,50 @@
 
 <script>
 
+import Users from '../classes/users'
+import firebase from '../classes/db'
+import Animation from '../classes/animations'
+
   export default {
 
-     name: 'Menu'
+     name: 'Menu',
+
+     data ()
+     {
+
+        return {
+
+          userLogged: Users.userLogged
+
+        }
+
+     },
+
+
+     methods: {
+
+       logIn ()
+       {
+
+          Animation.displayForm();
+
+       },
+
+
+       logOut ()
+       {
+
+         firebase.initializeDb().auth().signOut().then(() => {
+
+           this.userLogged = null;
+           window.localStorage.removeItem('userName');
+           window.localStorage.removeItem('userEmail');
+
+         })
+
+       }
+
+     }
 
   }
 

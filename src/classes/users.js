@@ -1,16 +1,33 @@
+import firebase from '../classes/db'
 class Users
 {
 
    constructor ()
    {
 
-      this.usersData = {
+      this.usersData = firebase.initializeDb().auth();
+      this.userLogged =  window.localStorage.getItem('userEmail');
 
-        usename: '',
-        userId: null,
-        logged: false
+   }
 
-      }
+
+   userData ()
+   {
+
+       var userdatas;
+
+       if(this.usersData)
+       {
+
+          userdatas = this.usersData;
+
+       }else{
+
+          userdatas = true;
+
+       }
+
+       return userdatas;
 
    }
 

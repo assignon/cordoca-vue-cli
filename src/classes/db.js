@@ -1,4 +1,6 @@
 import Firebase from 'firebase'
+import 'firebase/firestore'
+import Notifications from '../classes/notification'
 class Db
 {
 
@@ -21,8 +23,50 @@ class Db
    initializeDb ()
    {
 
-      var db = Firebase.initializeApp(this.config);
-      return db;
+    //  var db = Firebase.initializeApp(this.config);
+        var firebase;
+
+        if (!Firebase.apps.length) {
+
+          firebase = Firebase.initializeApp(this.config);
+
+        }else{
+
+           firebase = Firebase;
+
+        }
+        return firebase;
+
+   }
+
+
+   fireStore ()
+   {
+
+      var firestore = this.initializeDb().firestore();
+      return firestore;
+
+   }
+
+
+   insert (collectionName, data, notifContent, notifIcon)
+   {
+
+     this.fireStore().collection(collectionName).add({
+
+        data
+
+     })
+     .then(docRef => {
+
+       Notifications.notificationContent(notifContent, notifIcon);
+
+     })
+     .catch(error => {
+
+        Notifications.notificationContent(error, '../assets/notificationsIcons/errormsg.svg');
+
+     })
 
    }
 

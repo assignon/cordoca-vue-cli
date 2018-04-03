@@ -8,7 +8,7 @@
 
         <img src="../assets/redbuttonLogo.svg" alt="" class="appLogo">
         <h4>R.B.Alert {{ userID }}</h4>
-        <div class="bmenuCont"><img src="../assets/bmenu.svg" alt="" class="bMenu"></div>
+        <div class="bmenuCont" v-if="userEmail"><img src="../assets/bmenu.svg" alt="" class="bMenu"></div>
 
       </div>
 
@@ -40,6 +40,12 @@
 
      </div>
 
+     <notification></notification>
+
+     <sos></sos>
+
+     <textSos></textSos>
+
       <div class="formsContainer">
 
          <div class="formBack">
@@ -51,8 +57,8 @@
 
            <img src="../assets/close.svg" alt="" @click="closeForm">
 
-           <p v-if="account">Vul jouw inlog gegevens in...</p>
-           <p v-if="!account">Maak een nieuw account aan...</p>
+           <p v-if="account">{{ logMsg }}</p>
+           <p v-if="!account">{{ logMsg }}</p>
 
            <input type="text" name="" v-model="username" placeholder="Gebruikersnaam" v-if="!account">
            <input type="email" name="" v-model="email" placeholder="Email">
@@ -78,6 +84,9 @@
 import Animation from '../classes/animations'
 import firebase from '../classes/db'
 import Users from '../classes/users'
+import Sos from '../components/sos'
+import TextSos from '../components/textSos'
+import Notifications from '../components/notification'
 
 export default {
 
@@ -92,19 +101,39 @@ export default {
        username: "",
        email: '',
        password: '',
-       account: true
+       account: true,
+       logMsg: 'Vul jouw inlog gegevens in...',
+       userEmail : window.localStorage.getItem('userEmail'),
+       sosType: null
 
      }
 
    },
 
 
+   components :{
+
+     'notification': Notifications,
+     'sos': Sos,
+     'textSos': TextSos
+
+   },
+
+
+   created ()
+   {
+
+
+   },
+
+
    methods: {
 
-       isUserLogged (sosType)
+       isUserLogged (sosType, e)
        {
 
-          if(this.userID != null)
+          this.sosType = sosType;
+          if(firebase.initializeDb().auth().currentUser)
           {
 
             sosType();
@@ -114,6 +143,7 @@ export default {
             Animation.displayForm();
 
           }
+
 
        },
 
@@ -129,6 +159,7 @@ export default {
        registerForm ()
        {
 
+           this.logMsg = 'Maak een nieuw account aan...';
            this.account = false;
 
        },
@@ -137,6 +168,7 @@ export default {
        loginForm ()
        {
 
+          this.logMsg = 'Vul jouw inlog gegevens in...';
           this.account = true;
 
        },
@@ -148,17 +180,18 @@ export default {
           firebase.initializeDb().auth().createUserWithEmailAndPassword(this.email, this.password)
           .then(user => {
 
-            alert(`account created ${user.id}`);
+            this.logMsg = `account created ${user.email}`;
+            window.localStorage.setItem('userName', this.username);
             this.username = '';
             this.email = '';
             this.password = ''
 
-            window.localStorage.setItem()
+            this.login();
 
           },
         err => {
 
-           alert(err.message);
+           this.logMsg = err.message;
 
         })
 
@@ -168,15 +201,61 @@ export default {
        login ()
        {
 
-          alert(this.email+' '+this.password);
+          if(this.email != '' && this.password != '')
+          {
 
-       },
+            firebase.initializeDb().auth().signInWithEmailAndPassword(this.email, this.password)
+            .then(user => {
+
+                window.localStorage.setItem('userEmail', this.email);
+                this.logMsg = "U bent ingelogd";
+                Animation.hideForm();
+                Users.userLogged = !null;
+
+                this.sosType();
+
+            },
+
+            err => {
+
+              this.logMsg = err.message;
+
+             }
+
+            )
+
+           }else{
+
+             this.logMsg = 'Vul alle velden in...';
+
+           }
+
+        },
 
 
        sos ()
        {
 
+          Animation.callSosConfirm();
 
+        /*  firebase.fireStore().collection('sos').add({
+
+            'date_sended': '29/03/2018 12:00:00 AM',
+            'sosType': 'sos',
+            'sosContent': 'Helppp!!!',
+            'user': this.userEmail
+
+          })
+          .then(docRef =>{
+
+            alert(`sos with id ${docRef.id} sended`);
+
+          })
+          .catch(error => {
+
+            console.log(err);
+
+          })*/
 
        },
 
@@ -184,7 +263,7 @@ export default {
        textSos ()
        {
 
-
+          Animation.callSos('sosTextContainer');
 
        },
 

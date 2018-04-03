@@ -62,6 +62,69 @@ class Animations {
    }
 
 
+   callSosConfirm ()
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.sosContainer',0.7, {scale: 1, ease: Back.easeOut});
+     tl.to('.alerts',0.7, {scale: 0.7, ease: Back.easeOut}, '-=1');
+
+   }
+
+
+   hideSosConfirm ()
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.sosContainer',0.7, {scale: 0, ease: Back.easeOut});
+     tl.to('.alerts',0.7, {scale: 1, ease: Back.easeOut}, '-=0.7');
+
+   }
+
+
+   callSos (selector)
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.'+selector,0.7, {scale: 1, ease: Back.easeOut});
+     tl.to('.alerts',0.7, {scale: 0.7, ease: Back.easeOut}, '-=1');
+
+   }
+
+
+   hideSos (selector)
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.'+selector,0.7, {scale: 0, ease: Back.easeOut});
+     tl.to('.alerts',0.7, {scale: 1, ease: Back.easeOut}, '-=0.7');
+
+   }
+
+
+   callNotification ()
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.notificationCont',0.7, {right: '0px', ease: Back.easeOut});
+     tl.to('.alerts',0.7, {scale: 0.8, ease: Back.easeOut}, '-=1');
+
+     tl.to('.notificationCont',0.7, {right: '-300px', ease: Back.easeinOut}, 5, '#hideNotification');
+     tl.to('.alerts',0.7, {scale: 1, ease: Back.easeOut}, 'hideNotification');
+
+   }
+
+
+   hideNotification ()
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.notificationCont',0.7, {right: '300px', ease: Back.easeinOut});
+     tl.to('.alerts',0.7, {scale: 1, ease: Back.easeOut}, '-=0.7');
+
+   }
+
+
 }
 
 export default new Animations()
