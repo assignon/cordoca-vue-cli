@@ -60,6 +60,10 @@
         "source": "/Users/benjaminvanrossum/Sites/cordova/cordovaVueCLI/hybrid-base/platforms/android/app/src/main/res/mipmap-hdpi/icon.png"
     },
     {
+        "merged": "/Users/benjaminvanrossum/Sites/cordova/cordovaVueCLI/hybrid-base/platforms/android/app/build/intermediates/res/merged/debug/xml_provider_paths.xml.flat",
+        "source": "/Users/benjaminvanrossum/Sites/cordova/cordovaVueCLI/hybrid-base/platforms/android/app/src/main/res/xml/provider_paths.xml"
+    },
+    {
         "merged": "/Users/benjaminvanrossum/Sites/cordova/cordovaVueCLI/hybrid-base/platforms/android/app/build/intermediates/res/merged/debug/drawable-land-xxxhdpi_screen.png.flat",
         "source": "/Users/benjaminvanrossum/Sites/cordova/cordovaVueCLI/hybrid-base/platforms/android/app/src/main/res/drawable-land-xxxhdpi/screen.png"
     },

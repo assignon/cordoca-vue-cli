@@ -32,7 +32,7 @@
   align-items: center;
   z-index: 7;
   /*margin-top: -120%;*/
-  position: absolute;
+  position: fixed;
   top: 70px;
   right: -300px;
 

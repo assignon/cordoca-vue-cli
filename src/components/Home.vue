@@ -46,6 +46,8 @@
 
      <textSos></textSos>
 
+     <cameraSos></cameraSos>
+
       <div class="formsContainer">
 
          <div class="formBack">
@@ -81,11 +83,14 @@
 
 <script>
 
+import Vue from 'vue'
 import Animation from '../classes/animations'
 import firebase from '../classes/db'
 import Users from '../classes/users'
+import cordovaPlugins from '../classes/cordovaPlugins'
 import Sos from '../components/sos'
 import TextSos from '../components/textSos'
+import cameraSos from '../components/cameraSos'
 import Notifications from '../components/notification'
 
 export default {
@@ -104,7 +109,8 @@ export default {
        account: true,
        logMsg: 'Vul jouw inlog gegevens in...',
        userEmail : window.localStorage.getItem('userEmail'),
-       sosType: null
+       sosType: null,
+
 
      }
 
@@ -115,7 +121,8 @@ export default {
 
      'notification': Notifications,
      'sos': Sos,
-     'textSos': TextSos
+     'textSos': TextSos,
+     'cameraSos': cameraSos
 
    },
 
@@ -271,7 +278,32 @@ export default {
        cameraSos ()
        {
 
+        /* Vue.cordova.on('deviceready', () => {
+           console.log('Cordova : device is ready !');
+         });*/
+            cordovaPlugins.takePicture();
+          /*  Vue.cordova.camera.getPicture((imageUri) => {
 
+              cordovaPlugins.cameraSucces(imageUri)
+
+            }, (message) => {
+
+              cordovaPlugins.cameraErr(message)
+
+            }, {
+
+              quality: 50,
+              destinationType: Camera.DestinationType.FILE_URI,
+              sourceType: Camera.PictureSourceType.CAMERA,
+              encodingType: Camera.EncodingType.JPEG,
+              mediaType: Camera.mediaType.PICTURE,
+              CAMERAdirection: Camera.Direction.BACK,
+              allowEdit: true,
+              correctOrientation: true,
+              targetWidth: 500,
+              targetHeight: 500
+
+            })*/
 
        },
 
