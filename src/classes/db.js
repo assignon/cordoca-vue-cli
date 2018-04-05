@@ -71,6 +71,24 @@ class Db
    }
 
 
+   prepareQuery (collectionName, callback)
+   {
+
+     this.fireStore().collection(collectionName).where('userEmail', '==', window.localStorage.getItem('userEmail'))
+     .get().then(callback);
+
+   }
+
+
+   query (collectionName, callback)
+   {
+
+     this.fireStore().collection(collectionName)
+     .get().then(callback);
+
+   }
+
+
 }
 
 export default new Db()

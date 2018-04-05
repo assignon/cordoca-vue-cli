@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Menu from '@/components/Menu'
 import SignIn from '@/components/Signin'
+import UsersSos from '@/components/usersSos'
 
 Vue.use(Router)
 
@@ -34,6 +35,13 @@ export default new Router({
         menu: Menu
 
       }
+
+    },
+    {
+
+      path: '/sos',
+      name: 'sosPage',
+      component: UsersSos
 
     }
   ]

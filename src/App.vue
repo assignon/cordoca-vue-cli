@@ -56,6 +56,7 @@ export default {
   mounted(){
 
     Animation.lauchScreen();
+    console.log(this.$route);
 
   }
 

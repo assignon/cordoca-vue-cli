@@ -92,6 +92,7 @@ import Sos from '../components/sos'
 import TextSos from '../components/textSos'
 import cameraSos from '../components/cameraSos'
 import Notifications from '../components/notification'
+import menu from '../components/Menu'
 
 export default {
 
@@ -217,7 +218,7 @@ export default {
                 window.localStorage.setItem('userEmail', this.email);
                 this.logMsg = "U bent ingelogd";
                 Animation.hideForm();
-                Users.userLogged = !null;
+                menu.data().userLogged = !null;
 
                 this.sosType();
 
@@ -277,7 +278,7 @@ export default {
 
        cameraSos ()
        {
-
+console.log(Vue.cordova);
         /* Vue.cordova.on('deviceready', () => {
            console.log('Cordova : device is ready !');
          });*/

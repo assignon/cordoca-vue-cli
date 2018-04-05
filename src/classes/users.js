@@ -11,6 +11,21 @@ class Users
    }
 
 
+   isUserLogged ()
+   {
+
+     var userState = false;
+     firebase.initializeDb().auth().onAuthStateChanged(function(user){
+
+       userState = user;
+
+     })
+
+     return userState;
+
+   }
+
+
    userData ()
    {
 

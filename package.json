@@ -94,8 +94,7 @@
   ],
   "cordova": {
     "plugins": {
-      "cordova-plugin-whitelist": {},
-      "cordova-plugin-camera": {}
+      "cordova-plugin-whitelist": {}
     },
     "platforms": [
       "android",

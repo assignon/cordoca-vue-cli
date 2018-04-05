@@ -115,12 +115,25 @@ class Animations {
    }
 
 
-   hideNotification ()
+   sosAlarm ()
+   {
+
+       var tl = new TimelineMax();
+
+       setInterval(function(){
+
+         tl.to('.sosAlert',0.7, {scale: 0.8, yoyo: true, repeat: 3, ease: Back.easeinOut});
+
+       }, 5000);
+
+   }
+
+
+   sosAlert ()
    {
 
      var tl = new TimelineMax();
-     tl.to('.notificationCont',0.7, {right: '300px', ease: Back.easeinOut});
-     tl.to('.alerts',0.7, {scale: 1, ease: Back.easeOut}, '-=0.7');
+     tl.to('.sosAlert',0.7, {right: '300px', ease: Back.easeinOut});
 
    }
 

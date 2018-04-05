@@ -22,6 +22,13 @@ new Vue({
   components: { App },
   render: h => h(App),
 
+  created ()
+  {
+
+     console.log(Vue.cordova);
+
+  },
+
   mounted (){
 
      document.addEventListener('deviceReady', this.onDeviceReady, false);
