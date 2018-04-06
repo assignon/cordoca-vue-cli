@@ -24,7 +24,7 @@
         <div class="alerts">
 
           <div class="sosCont" @click="isUserLogged(sos)"><img src="../assets/redbuttonLogo.svg" alt="" class="sos"></div>
-          <div class="imgAlertsCont" @click="isUserLogged(cameraSos)"><img src="../assets/camera.svg" alt></div>
+          <div class="imgAlertsCont" @click="isUserLogged(cameraSos)"><img src="../assets/camera.svg" alt id="cameraSosCont"></div>
 
         </div>
 
@@ -278,11 +278,11 @@ export default {
 
        cameraSos ()
        {
-console.log(Vue.cordova);
+
         /* Vue.cordova.on('deviceready', () => {
            console.log('Cordova : device is ready !');
          });*/
-            cordovaPlugins.takePicture();
+          //  cordovaPlugins.takePicture();
           /*  Vue.cordova.camera.getPicture((imageUri) => {
 
               cordovaPlugins.cameraSucces(imageUri)

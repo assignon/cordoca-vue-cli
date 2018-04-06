@@ -4,14 +4,73 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:; connect-src ‘self’ ws:;">-->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval' data: gap: content:">
     <title>redbutton-alert</title>
   </head>
   <body>
     <div id="app"></div>
 
+
     <script type="text/javascript">
 
-      
+
+    var appInit = {
+
+      init: function()
+      {
+
+        var cameraSosCont = document.getElementById('cameraSosCont');
+        console.log('device is ready');
+        cameraSosCont.addEventListener('click', appInit.takePicture);
+
+      },
+
+
+      takePicture: function()
+      {
+
+               var cameraOpts = {
+
+                 quality: 50,
+                 destinationType: Camera.DestinationType.FILE_URI,
+                 sourceType: Camera.PictureSourceType.CAMERA,
+                 encodingType: Camera.EncodingType.JPEG,
+                 mediaType: Camera.MediaType.PICTURE,
+                 CAMERAdirection: Camera.Direction.BACK,
+                 allowEdit: true,
+                 correctOrientation: true,
+                 targetWidth: 500,
+                 targetHeight: 500
+
+               }
+
+               navigator.camera.getPicture(appInit.cameraSucces, appInit.cameraErr, cameraOpts);
+
+      },
+
+
+      cameraSucces: function(imageUri)
+      {
+
+        //Animations.callSos('cameraSos');
+        //var picture = document.querySelector('.cameraFoto');
+        //picture.src = imageUri;
+        console.log(imageUri);
+
+      },
+
+
+      cameraErr: function(error)
+      {
+
+        //Notifications.notificationContent(error, '../assets/notificationsIcons/errormsg.svg');
+        console.debug('Unable to take the picture due: '+ error, 'app');
+
+      }
+
+    }
+
+      document.addEventListener('deviceready', appInit.init);
 
     </script>
 

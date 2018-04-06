@@ -48,15 +48,16 @@
 <script>
 
 import Animation from './classes/animations'
+import Vue from 'vue'
 
 export default {
 
   name: 'App',
 
+
   mounted(){
 
     Animation.lauchScreen();
-    console.log(this.$route);
 
   }
 

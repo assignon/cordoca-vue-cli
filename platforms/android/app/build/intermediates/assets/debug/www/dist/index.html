@@ -1,1 +1,57 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>redbutton-alert</title><link href=static/css/app.7d476ae86003d311f7b1f3643f4f801f.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript></script><script type=text/javascript src=static/js/manifest.37a2ecbb1d1b7e6c9ada.js></script><script type=text/javascript src=static/js/vendor.f0862dd0aae04c949d57.js></script><script type=text/javascript src=static/js/app.8e85dfc0c72d46255343.js></script></body></html>
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=Content-Security-Policy content="default-src * 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval' data: gap: content:"><title>redbutton-alert</title><link href=static/css/app.81bc0a17f93e43625762f6046cc81064.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript>var appInit = {
+
+      init: function()
+      {
+
+        var cameraSosCont = document.getElementById('cameraSosCont');
+        console.log('device is ready');
+        cameraSosCont.addEventListener('click', appInit.takePicture);
+
+      },
+
+
+      takePicture: function()
+      {
+
+               var cameraOpts = {
+
+                 quality: 50,
+                 destinationType: Camera.DestinationType.FILE_URI,
+                 sourceType: Camera.PictureSourceType.CAMERA,
+                 encodingType: Camera.EncodingType.JPEG,
+                 mediaType: Camera.MediaType.PICTURE,
+                 CAMERAdirection: Camera.Direction.BACK,
+                 allowEdit: true,
+                 correctOrientation: true,
+                 targetWidth: 500,
+                 targetHeight: 500
+
+               }
+
+               navigator.camera.getPicture(appInit.cameraSucces, appInit.cameraErr, cameraOpts);
+
+      },
+
+
+      cameraSucces: function(imageUri)
+      {
+
+        //Animations.callSos('cameraSos');
+        //var picture = document.querySelector('.cameraFoto');
+        //picture.src = imageUri;
+        console.log(imageUri);
+
+      },
+
+
+      cameraErr: function(error)
+      {
+
+        //Notifications.notificationContent(error, '../assets/notificationsIcons/errormsg.svg');
+        console.debug('Unable to take the picture due: '+ error, 'app');
+
+      }
+
+    }
+
+      document.addEventListener('deviceready', appInit.init);</script><script type=text/javascript src=static/js/manifest.37a2ecbb1d1b7e6c9ada.js></script><script type=text/javascript src=static/js/vendor.f0862dd0aae04c949d57.js></script><script type=text/javascript src=static/js/app.3aa67da6f9a2fc0bb8fa.js></script></body></html>

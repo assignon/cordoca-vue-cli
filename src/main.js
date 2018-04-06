@@ -5,7 +5,9 @@ import App from './App'
 import router from './router'
 import VueCordova from 'vue-cordova'
 
-Vue.use(VueCordova)
+Vue.use(VueCordova, {
+  optionTestKey: 'optionTestValue'
+})
 
 Vue.config.productionTip = false
 
@@ -15,36 +17,11 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 
-
 new Vue({
   el: '#app',
   router,
   components: { App },
-  render: h => h(App),
-
-  created ()
-  {
-
-     console.log(Vue.cordova);
-
-  },
-
-  mounted (){
-
-     document.addEventListener('deviceReady', this.onDeviceReady, false);
-
-  },
-
-  methods: {
-
-    onDeviceReady ()
-    {
-
-       console.log('device is ready');
-
-    }
-
-  }
+  render: h => h(App)
 
 })
 
